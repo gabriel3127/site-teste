@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entre em contato com PSR Embalagens Brasília. Orçamentos para marmitas, sacolas delivery e descartáveis. Entrega grátis no DF. Ligue (61) 99317-7107">
+    <meta name="author" content="PSR EMBALAGENS - Embalagens Brasília">
+    <title>Contato - PSR Embalagens Brasília | Orçamento Embalagens DF</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2XTHETLWD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-X2XTHETLWD');
+
+        // EVENTOS PERSONALIZADOS PARA PÁGINA DE CONTATO
+        document.addEventListener('DOMContentLoaded', function() {
+            // Rastrear cliques em elementos importantes
+            document.addEventListener('click', function(e) {
+                // Telefone
+                if (e.target.href && e.target.href.includes('tel:')) {
+                    gtag('event', 'phone_click', {
+                        'event_category': 'conversion',
+                        'event_label': 'contact_page_phone'
+                    });
+                }
+                
+                // Email
+                if (e.target.href && e.target.href.includes('mailto:')) {
+                    gtag('event', 'email_click', {
+                        'event_category': 'conversion',
+                        'event_label': 'contact_page_email'
+                    });
+                }
+            });
+
+            // Rastrear WhatsApp na página de contato
+            const whatsappLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]');
+            whatsappLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    gtag('event', 'whatsapp_click', {
+                        'event_category': 'lead_generation',
+                        'event_label': 'contact_page',
+                        'value': 1
+                    });
+                });
+            });
+
+            // Rastrear formulário de contato
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function() {
+                    gtag('event', 'form_submit', {
+                        'event_category': 'lead_generation',
+                        'event_label': 'contact_form_page'
+                    });
+                });
+            }
+        });
+    </script>
+    
+    <!-- Google tag (gtag.js) - Google Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17515817161"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-17515817161');
+    </script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s) {
+            if(f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments)
+            };
+            if(!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)
+        }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        
+        fbq('init', '789228423596044');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+             src="https://www.facebook.com/tr?id=789228423596044&ev=PageView&noscript=1">
+    </noscript>
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Contato - PSR Embalagens Brasília | Orçamento Embalagens DF">
+    <meta property="og:description" content="Entre em contato conosco para orçamentos de embalagens delivery, marmitas e biodegradáveis em Brasília DF. Entrega grátis!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.psrembalagens.com.br/contato.html">
+    <meta property="og:image" content="https://www.psrembalagens.com.br/images/PSR-LOGO.svg">
+    <meta property="og:site_name" content="PSR Embalagens">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="tailwind-cdn" content="production-override">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contato - PSR Embalagens Brasília | Orçamento Embalagens DF">
+    <meta name="twitter:description" content="Entre em contato conosco para orçamentos de embalagens delivery, marmitas e biodegradáveis em Brasília DF.">
+    <meta name="twitter:image" content="https://www.psrembalagens.com.br/images/PSR-LOGO.svg">
+    
+    <!-- SEO Tags -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://www.psrembalagens.com.br/contato.html">
+    
+    <!-- Informações de localização -->
+    <meta name="geo.region" content="BR-DF">
+    <meta name="geo.placename" content="Brasília">
+    <meta name="geo.position" content="-15.788637900000001;-47.9464213">
+    <meta name="ICBM" content="-15.788637900000001, -47.9464213">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="style.css">
+
+    // ...existing code ...
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+
+    <!-- Schema Local Business -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "PSR Embalagens",
+    "alternateName": "Santa Rita Embalagens",
+    "image": "https://www.psrembalagens.com.br/images/PSR-LOGO.svg",
+    "description": "Distribuidora de embalagens em Brasília DF. Marmitas, sacolas delivery, descartáveis e biodegradáveis. Pronta entrega com qualidade e preço competitivo. Entrega grátis no DF e entorno.",
+    "url": "https://www.psrembalagens.com.br",
+    "telephone": "+5561993177107",
+    "email": "comercial@psrembalagens.com.br",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "SIA Trecho 10,05 PAV B-10B, BOX 07",
+        "addressLocality": "Brasília",
+        "addressRegion": "DF",
+        "postalCode": "71200-100",
+        "addressCountry": "BR"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-15.788637900000001",
+        "longitude": "-47.9464213"
+    },
+    "openingHours": "Mo-Fr 08:00-18:00, Sa 08:00-12:00",
+    "priceRange": "$$",
+    "areaServed": {
+        "@type": "State",
+        "name": "Distrito Federal"
+    }
+    }
+    </script>
+
+    <!-- Breadcrumbs Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://www.psrembalagens.com.br/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Contato",
+          "item": "https://www.psrembalagens.com.br/contato.html"
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white shadow-sm fixed w-full top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center">
+                        <img src="images/PSR LOGO.svg" alt="PSR EMBALAGENS" class="h-10 w-auto">
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Início</a>
+                        <a href="index.html#produtos" class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Produtos</a>
+                        <a href="index.html#sobre" class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Sobre</a>
+                        <a href="index.html#faq" class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">FAQ</a>
+                        <a href="contato.html" class="text-primary px-3 py-2 text-sm font-medium transition-colors border-b-2 border-primary">Contato</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="mobile-menu-button bg-gray-100 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary">
+                        <span class="sr-only">Abrir menu principal</span>
+                        <i class="ri-menu-line h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="mobile-menu hidden md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+                    <a href="index.html" class="text-gray-700 hover:text-primary block px-3 py-2 text-base font-medium transition-colors">Início</a>
+                    <a href="index.html#produtos" class="text-gray-700 hover:text-primary block px-3 py-2 text-base font-medium transition-colors">Produtos</a>
+                    <a href="index.html#sobre" class="text-gray-700 hover:text-primary block px-3 py-2 text-base font-medium transition-colors">Sobre</a>
+                    <a href="index.html#faq" class="text-gray-700 hover:text-primary block px-3 py-2 text-base font-medium transition-colors">FAQ</a>
+                    <a href="contato.html" class="text-primary block px-3 py-2 text-base font-medium transition-colors">Contato</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <nav aria-label="Breadcrumb" class="pt-16 py-4 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <ol class="flex items-center space-x-2 text-sm">
+                <li>
+                    <a href="index.html" class="text-primary hover:text-blue-800">Início</a>
+                </li>
+                <li class="text-gray-400">/</li>
+                <li class="text-gray-600">Contato</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Seção de Contato -->
+        <section id="contato" class="py-20 bg-gray-50">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h1 class="text-4xl font-bold text-gray-900 mb-4">Contato PSR Embalagens Brasília</h1>
+                    <p class="text-xl text-gray-600">
+                        Solicite seu orçamento de embalagens para delivery, marmitas e produtos biodegradáveis. Atendimento especializado no DF!
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Formulário de Contato -->
+                    <div class="bg-white p-12 rounded-lg shadow-sm">
+                        <div class="mb-8">
+                            <h2 class="text-3xl font-bold text-gray-900 mb-3">Queremos te ouvir!</h2>
+                            <p class="text-lg text-gray-600">Preencha o formulário abaixo e entraremos em contato com você em até 2 horas.</p>
+                        </div>
+                        
+                        <form id="contactForm" class="space-y-8">
+                            <!-- Nome -->
+                            <div>
+                                <label for="nome" class="block text-base font-medium text-gray-700 mb-3">
+                                    Nome Completo *
+                                </label>
+                                <input type="text" id="nome" name="nome" required
+                                       class="w-full px-6 py-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                                       placeholder="Digite seu nome completo">
+                            </div>
+
+                            <!-- Telefone -->
+                            <div>
+                                <label for="telefone" class="block text-base font-medium text-gray-700 mb-3">
+                                    Telefone *
+                                </label>
+                                <input type="tel" id="telefone" name="telefone" required
+                                       class="w-full px-6 py-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                                       placeholder="(61) 99999-9999">
+                            </div>
+
+                            <!-- Email -->
+                            <div>
+                                <label for="email" class="block text-base font-medium text-gray-700 mb-3">
+                                    Email *
+                                </label>
+                                <input type="email" id="email" name="email" required
+                                       class="w-full px-6 py-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                                       placeholder="seu@email.com">
+                            </div>
+
+                            <!-- Descrição -->
+                            <div>
+                                <label for="descricao" class="block text-base font-medium text-gray-700 mb-3">
+                                    Descrição/Mensagem *
+                                </label>
+                                <textarea id="descricao" name="descricao" rows="6" required
+                                          class="w-full px-6 py-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-vertical"
+                                          placeholder="Descreva sua necessidade ou deixe sua mensagem..."></textarea>
+                            </div>
+
+                            <!-- Botão de Envio -->
+                            <div>
+                                <button type="submit" 
+                                        class="w-full bg-primary text-white py-4 px-8 text-lg rounded-lg font-semibold hover:bg-blue-700 transition-colors focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                                        onclick="gtag('event', 'click', {'event_category': 'conversion', 'event_label': 'form_submit_contato'});">
+                                    <i class="ri-send-plane-line mr-2"></i>
+                                    Enviar Mensagem
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Informações de Contato -->
+                    <div class="space-y-8">
+                        <!-- Contato Direto -->
+                        <div class="bg-white p-8 rounded-lg shadow-sm">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-6">Fale Conosco Diretamente</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 flex items-center justify-center bg-primary text-white rounded-lg flex-shrink-0">
+                                        <i class="ri-phone-line text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-900 mb-1">Telefone</h4>
+                                        <p class="text-gray-600">
+                                            <a href="tel:+5561993177107" class="hover:text-primary transition-colors">(61) 99317-7107</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 flex items-center justify-center bg-primary text-white rounded-lg flex-shrink-0">
+                                        <i class="ri-mail-line text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-900 mb-1">Email</h4>
+                                        <p class="text-gray-600">
+                                            <a href="mailto:comercial@santaritaembalagens.com.br" class="hover:text-primary transition-colors">comercial@santaritaembalagens.com.br</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Localização -->
+                        <div class="bg-white p-8 rounded-lg shadow-sm">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-6">Nossa Localização</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 flex items-center justify-center bg-primary text-white rounded-lg flex-shrink-0">
+                                        <i class="ri-map-pin-line text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-900 mb-1">Endereço</h4>
+                                        <p class="text-gray-600">
+                                            SIA Trecho 10, LOTE 05, PAV B-10B, BOX 07<br>
+                                            CEASA, Guará, Brasília - DF<br>
+                                            CEP: 71200-100
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 flex items-center justify-center bg-primary text-white rounded-lg flex-shrink-0">
+                                        <i class="ri-time-line text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-900 mb-1">Horário de Funcionamento</h4>
+                                        <p class="text-gray-600">
+                                            Segunda e Quinta: 5h às 17h<br>
+                                            Terça, Quarta e Quinta: 6h às 17h<br>
+                                            Sábado: 5h às 12h<br>
+                                            Domingo: Fechado
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CTA WhatsApp -->
+                        <div class="bg-green-50 border border-green-200 p-6 rounded-lg">
+                            <h3 class="text-lg font-semibold text-green-800 mb-2">Precisa de Atendimento Rápido?</h3>
+                            <p class="text-green-700 mb-4">Entre em contato via WhatsApp e receba resposta imediata!</p>
+                            <a href="https://wa.me/5561993177107?text=Olá! Gostaria de fazer um orçamento de embalagens." 
+                               target="_blank"
+                               class="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors inline-flex items-center space-x-2"
+                               onclick="gtag('event', 'click', {'event_category': 'conversion', 'event_label': 'whatsapp_contato_cta'});">
+                                <i class="ri-whatsapp-line"></i>
+                                <span>Falar no WhatsApp</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5561993177107?text=Olá! Gostaria de conhecer mais sobre as embalagens da PSR EMBALAGENS." 
+       class="whatsapp-float" 
+       title="Fale conosco no WhatsApp" 
+       target="_blank"
+       onclick="gtag('event', 'click', {'event_category': 'conversion', 'event_label': 'whatsapp_float'});"></a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>PSR EMBALAGENS</h3>
+                    <p>Sua parceira em embalagens de qualidade no Distrito Federal. Soluções completas para empresas e eventos.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61578739646226" 
+                           title="Facebook" 
+                           target="_blank"
+                           onclick="gtag('event', 'click', {'event_category': 'social', 'event_label': 'facebook'});"></a>
+                        <a href="https://www.instagram.com/psrembalagens/" 
+                           title="Instagram" 
+                           target="_blank"
+                           onclick="gtag('event', 'click', {'event_category': 'social', 'event_label': 'instagram'});"></a>
+                        <a href="https://wa.me/5561993177107" 
+                           title="WhatsApp" 
+                           target="_blank"
+                           onclick="gtag('event', 'click', {'event_category': 'conversion', 'event_label': 'whatsapp_footer'});"></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Empresa</h4>
+                    <a href="index.html#sobre">Sobre Nós</a>
+                    <a href="index.html#diferenciais">Nossos Diferenciais</a>
+                    <a href="contato.html">Contato</a>
+                    <a href="#">Política de Privacidade</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Atendimento</h4>
+                    <p>📞 (61) 99317-7107</p>
+                    <p>📧 comercial@santaritaembalagens.com.br</p>
+                    <p>🕒 Seg-Sex: 5h às 17h</p>
+                    <p>🕒 Sáb: 5h às 12h</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 PSR EMBALAGENS - Embalagens Brasília. Todos os direitos reservados. | Desenvolvido com ❤️ para o seu negócio</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

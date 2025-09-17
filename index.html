@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PSR Embalagens Brasília: Marmitas, sacolas delivery, descartáveis biodegradáveis. Entrega grátis no DF. Mais de 15 anos no mercado. PEÇA JÁ!">
+    <meta name="author" content="PSR EMBALAGENS - Embalagens Brasília">
+    <title>Embalagens Brasília DF | PSR EMBALAGENS | Delivery, Marmitas e Descartáveis</title>
+    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X2XTHETLWD"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X2XTHETLWD');
+
+    // EVENTOS PERSONALIZADOS PARA ACOMPANHAR COMPORTAMENTO
+
+    // 1. Acompanhar profundidade de scroll
+    let scrollDepths = [25, 50, 75, 90];
+    let firedDepths = [];
+
+    window.addEventListener('scroll', function() {
+        let scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+        
+        scrollDepths.forEach(function(depth) {
+            if (scrollPercent >= depth && !firedDepths.includes(depth)) {
+                gtag('event', 'scroll_depth', {
+                    'event_category': 'engagement',
+                    'event_label': depth + '%',
+                    'value': depth
+                });
+                firedDepths.push(depth);
+            }
+        });
+    });
+
+    // 2. Tempo na página
+    let startTime = Date.now();
+    let timeTracked = false;
+
+    function trackTimeOnPage() {
+        if (!timeTracked) {
+            let timeSpent = Math.round((Date.now() - startTime) / 1000);
+            gtag('event', 'time_on_page', {
+                'event_category': 'engagement',
+                'event_label': 'seconds_spent',
+                'value': timeSpent
+            });
+            timeTracked = true;
+        }
+    }
+
+    // Rastrear quando o usuário sair da página
+    window.addEventListener('beforeunload', trackTimeOnPage);
+    
+    // Rastrear após 30 segundos na página
+    setTimeout(function() {
+        gtag('event', 'engaged_user', {
+            'event_category': 'engagement',
+            'event_label': '30_seconds_plus'
+        });
+    }, 30000);
+
+    // 3. Aguardar DOM carregar
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // Rastrear cliques em elementos importantes
+        document.addEventListener('click', function(e) {
+            // Telefone
+            if (e.target.href && e.target.href.includes('tel:')) {
+                gtag('event', 'phone_click', {
+                    'event_category': 'conversion',
+                    'event_label': 'phone_number'
+                });
+            }
+            
+            // Email
+            if (e.target.href && e.target.href.includes('mailto:')) {
+                gtag('event', 'email_click', {
+                    'event_category': 'conversion',
+                    'event_label': 'email'
+                });
+            }
+
+            // Catálogos (Drive links)
+            if (e.target.href && e.target.href.includes('drive.google.com')) {
+                gtag('event', 'catalog_view', {
+                    'event_category': 'product_interest',
+                    'event_label': e.target.closest('.produto-card')?.querySelector('h3')?.textContent || 'unknown'
+                });
+            }
+        });
+
+        // 4. Rastrear WhatsApp com mais detalhes
+        const whatsappLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]');
+        
+        whatsappLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                let source = 'unknown';
+                if (this.classList.contains('whatsapp-float')) {
+                    source = 'floating_button';
+                } else if (this.closest('#inicio')) {
+                    source = 'hero_section';
+                } else if (this.closest('#faq')) {
+                    source = 'faq_section';
+                } else if (this.closest('footer')) {
+                    source = 'footer';
+                } else if (this.closest('#contato')) {
+                    source = 'contact_section';
+                }
+                
+                gtag('event', 'whatsapp_click', {
+                    'event_category': 'lead_generation',
+                    'event_label': source,
+                    'value': 1
+                });
+            });
+        });
+
+        // 5. Rastrear visualização de seções importantes
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    gtag('event', 'section_view', {
+                        'event_category': 'engagement',
+                        'event_label': entry.target.id || 'unknown_section'
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Observar seções importantes
+        const sections = document.querySelectorAll('#produtos, #sobre, #contato, #faq, #diferenciais');
+        sections.forEach(section => observer.observe(section));
+
+        // 6. Rastrear formulário de contato
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function() {
+                gtag('event', 'form_submit', {
+                    'event_category': 'lead_generation',
+                    'event_label': 'contact_form'
+                });
+            });
+        }
+    });
+</script>
+    
+    <!-- Google tag (gtag.js) - Google Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17515817161"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-17515817161');
+    </script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s) {
+            if(f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments)
+            };
+            if(!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)
+        }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        
+        fbq('init', '789228423596044');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+             src="https://www.facebook.com/tr?id=789228423596044&ev=PageView&noscript=1">
+    </noscript>
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="PSR EMBALAGENS - Embalagens Brasília DF | Entrega Grátis">
+    <meta property="og:description" content="Qualidade, variedade e preço competitivo para empresas e eventos. Entrega grátis no DF e entorno.">
+    <meta property="og:type" content="website">
+    <meta name="tailwind-cdn" content="production-override">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-final.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <!-- Removed external remixicon dependency -->
+
+    <!-- Schema Local Business -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "PSR Embalagens",
+    "alternateName": "Santa Rita Embalagens",
+    "image": "https://www.psrembalagens.com.br/images/PSR-LOGO.svg",
+    "description": "Distribuidora de embalagens em Brasília DF. Marmitas, sacolas delivery, descartáveis e biodegradáveis. Pronta entrega com qualidade e preço competitivo. Entrega grátis no DF e entorno.",
+    "url": "https://www.psrembalagens.com.br",
+    "telephone": "+5561993177107",
+    "email": "comercial@santaritaembalagens.com.br",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "SIA Trecho 10,05 PAV B-10B, BOX 07",
+        "addressLocality": "Brasília",
+        "addressRegion": "DF",
+        "postalCode": "71200-100",
+        "addressCountry": "BR"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -15.788637900000001,
+        "longitude": -47.9464213
+    },
+    "openingHoursSpecification": [
+        {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "05:00",
+        "closes": "17:00"
+        },
+        {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "05:00",
+        "closes": "12:00"
+        }
+    ],
+    "serviceArea": {
+        "@type": "Place",
+        "name": "Distrito Federal e Entorno",
+        "geo": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": -15.788637900000001,
+            "longitude": -47.9464213
+        },
+        "geoRadius": "50000"
+        }
+    },
+    "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Catálogo de Embalagens PSR",
+        "itemListElement": [
+        {
+            "@type": "Offer",
+            "itemOffered": {
+            "@type": "Product",
+            "name": "Embalagens Descartáveis para Delivery",
+            "description": "Marmitas, copos, sacolas e embalagens especializadas para food service e delivery",
+            "category": "Embalagens para Alimentação"
+            }
+        },
+        {
+            "@type": "Offer",
+            "itemOffered": {
+            "@type": "Product",
+            "name": "Embalagens para Mercados e Açougues",
+            "description": "Sacolas, embalagens e soluções para mercados, açougues e comércios em geral",
+            "category": "Embalagens para Varejo"
+            }
+        },
+        {
+            "@type": "Offer",
+            "itemOffered": {
+            "@type": "Product",
+            "name": "Embalagens para Hamburguerias e Lanchonetes",
+            "description": "Caixas para hambúrguer, batatas fritas, lanches e fast food",
+            "category": "Embalagens para Fast Food"
+            }
+        },
+        {
+            "@type": "Offer",
+            "itemOffered": {
+            "@type": "Product",
+            "name": "Descartáveis para Festas e Eventos",
+            "description": "Copos, pratos, utensílios descartáveis e embalagens temáticas para eventos",
+            "category": "Descartáveis para Festas"
+            }
+        },
+        {
+            "@type": "Offer",
+            "itemOffered": {
+            "@type": "Product",
+            "name": "Produtos de Higiene e Limpeza",
+            "description": "Produtos de higiene e limpeza profissional para estabelecimentos comerciais",
+            "category": "Higiene e Limpeza"
+            }
+        },
+        {
+            "@type": "Offer",
+            "itemOffered": {
+            "@type": "Product",
+            "name": "Embalagens Biodegradáveis e Sustentáveis",
+            "description": "Produtos ecológicos e sustentáveis que respeitam o meio ambiente",
+            "category": "Embalagens Sustentáveis"
+            }
+        }
+        ]
+    },
+    "areaServed": [
+        {
+        "@type": "City",
+        "name": "Brasília",
+        "containedInPlace": {
+            "@type": "State",
+            "name": "Distrito Federal"
+        }
+        },
+        {
+        "@type": "City",
+        "name": "Águas Claras",
+        "containedInPlace": {
+            "@type": "State",
+            "name": "Distrito Federal"
+        }
+        },
+        {
+        "@type": "City",
+        "name": "Taguatinga",
+        "containedInPlace": {
+            "@type": "State",
+            "name": "Distrito Federal"
+        }
+        },
+        {
+        "@type": "City",
+        "name": "Ceilândia",
+        "containedInPlace": {
+            "@type": "State",
+            "name": "Distrito Federal"
+        }
+        },
+        {
+        "@type": "City",
+        "name": "Guará",
+        "containedInPlace": {
+            "@type": "State",
+            "name": "Distrito Federal"
+        }
+        }
+    ],
+    "sameAs": [
+        "https://www.facebook.com/profile.php?id=61578739646226",
+        "https://www.instagram.com/psrembalagens/"
+    ],
+    "review": [
+        {
+        "@type": "Review",
+        "author": {
+            "@type": "Person",
+            "name": "Alcides Moreira"
+        },
+        "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+        },
+        "reviewBody": "Atendimento rápido e entrega no dia marcado!!! Parabéns"
+        }
+    ],
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "4",
+        "bestRating": "5",
+        "worstRating": "5"
+    }
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Vocês fazem entrega grátis em Brasília?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim! Fazemos entrega grátis para todo o DF e entorno. A entrega é realizada em rotas diárias, sujeita à disponibilidade de horário e localização."
+          }
+        },
+        {
+          "@type": "Question", 
+          "name": "Qual o horário de funcionamento da PSR Embalagens?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Funcionamos de segunda a sexta das 5h às 17h e aos sábados das 5h às 12h. Domingos permanecemos fechados."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Vocês vendem embalagens para delivery?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim! Temos uma linha completa de embalagens para delivery: marmitas, caixas para hambúrguer, sacolas, copos e muito mais. Todos os produtos são resistentes e mantêm a qualidade dos alimentos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como posso fazer um orçamento?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Você pode solicitar orçamento pelo WhatsApp (61) 99317-7107, email comercial@santaritaembalagens.com.br ou visitando nossa loja no CEASA, Guará, Brasília-DF."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Vocês têm embalagens biodegradáveis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim! Oferecemos uma linha completa de embalagens biodegradáveis e sustentáveis que respeitam o meio ambiente sem abrir mão da qualidade."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual a localização da PSR Embalagens?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Estamos localizados no SIA Trecho 10,05 PAV B-10B, BOX 07, CEASA, Guará, Brasília - DF, CEP: 71200-100. Uma localização estratégica para facilitar o acesso."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Breadcrumbs Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://www.psrembalagens.com.br/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Produtos",
+          "item": "https://www.psrembalagens.com.br/#produtos"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Sobre",
+          "item": "https://www.psrembalagens.com.br/#sobre"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Contato",
+          "item": "https://www.psrembalagens.com.br/#contato"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "t7new17n3j");
+    </script>
+
+    <!-- Meta tags adicionais para SEO -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://www.psrembalagens.com.br/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
+    <!-- Open Graph melhorado -->
+    <meta property="og:site_name" content="PSR Embalagens">
+    <meta property="og:url" content="https://www.psrembalagens.com.br/">
+    <meta property="og:image" content="https://www.psrembalagens.com.br/images/PSR-LOGO.svg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PSR EMBALAGENS - Embalagens Brasília DF | Entrega Grátis">
+    <meta name="twitter:description" content="Qualidade, variedade e preço competitivo para empresas e eventos. Entrega grátis no DF e entorno.">
+    <meta name="twitter:image" content="https://www.psrembalagens.com.br/images/PSR-LOGO.svg">
+
+    <!-- Informações de localização -->
+    <meta name="geo.region" content="BR-DF">
+    <meta name="geo.placename" content="Brasília">
+    <meta name="geo.position" content="-15.788637900000001;-47.9464213">
+    <meta name="ICBM" content="-15.788637900000001, -47.9464213">
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <link rel="preload" as="image" href="images/hero.JPG">
+    
+</head>
+<body>
+    <!-- SVG Sprite - Definições dos ícones -->
+    <svg style="display: none;" aria-hidden="true">
+        <defs>
+            <!-- Ícone de localização -->
+            <symbol id="icon-map-pin" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </symbol>
+            
+            <!-- Ícone de tempo/relógio -->
+            <symbol id="icon-time" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+            </symbol>
+            
+            <!-- Ícone de telefone -->
+            <symbol id="icon-phone" viewBox="0 0 24 24">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </symbol>
+            
+            <!-- Ícone de email -->
+            <symbol id="icon-email" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </symbol>
+            
+            <!-- Ícone de WhatsApp -->
+            <symbol id="icon-whatsapp" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.893 3.488"/>
+            </symbol>
+            
+            <!-- Ícone de estrela preenchida -->
+            <symbol id="icon-star-fill" viewBox="0 0 24 24">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+            </symbol>
+            
+            <!-- Ícone de envio -->
+            <symbol id="icon-send" viewBox="0 0 24 24">
+                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+            </symbol>
+            
+            <!-- Ícone de adicionar/mais -->
+            <symbol id="icon-add" viewBox="0 0 24 24">
+                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+            </symbol>
+            
+            <!-- Ícone de subtrair/menos -->
+            <symbol id="icon-subtract" viewBox="0 0 24 24">
+                <path d="M19 13H5v-2h14v2z"/>
+            </symbol>
+            
+            <!-- Ícone do Google -->
+            <symbol id="icon-google" viewBox="0 0 24 24">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </symbol>
+        </defs>
+    </svg>
+<!-- Header -->
+<!-- Header -->
+<header>
+    <nav class="container">
+        <a href="#inicio" class="logo">
+            <img src="images/PSR LOGO.svg" alt="PSR Embalagens - Logo" class="logo-image">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#diferenciais">Diferenciais</a></li>
+            <li><a href="#produtos">Produtos</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#localizacao">Localização</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <div class="header-social-links">
+            <a href="https://www.facebook.com/profile.php?id=61578739646226" title="Facebook" target="_blank"></a>
+            <a href="https://www.instagram.com/psrembalagens/" title="Instagram" target="_blank"></a>
+            <a href="https://wa.me/5561993177107" title="WhatsApp" target="_blank"></a>
+        </div>
+        <button class="mobile-menu" id="mobile-menu" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+</header>
+
+    <!-- Hero Section -->
+<section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden" 
+        style="background-image: url('images/hero.JPG'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"></div>
+    <div class="relative w-full max-w-7xl mx-auto px-6 py-20">
+        <div class="max-w-2xl">
+            <img src="images/PSR LOGO.svg" alt="PSR Embalagens - Logo" class="w-60 h-auto mb-8">
+            <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                Soluções Completas em <span class="text-primary">Embalagens</span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                Oferecemos uma ampla variedade de embalagens profissionais para todos os segmentos. Qualidade garantida, preços competitivos e entrega rápida.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#produtos" class="bg-primary text-white px-8 py-4 !rounded-button text-lg font-semibold hover:bg-blue-700 transition-colors whitespace-nowrap text-center"
+                    onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'explorar_catalogo'});">
+                    Explorar Catálogo
+                </a>
+                <a href="https://wa.me/5561993177107" target="_blank" class="border-2 border-primary text-primary px-8 py-4 !rounded-button text-lg font-semibold hover:bg-primary hover:text-white transition-colors whitespace-nowrap text-center"
+                    onclick="gtag('event', 'click', {'event_category': 'conversion', 'event_label': 'whatsapp_hero'});">
+                    Falar no WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Diferenciais -->
+<section class="py-20 bg-gray-50" id="diferenciais">
+    <div class="max-w-7xl mx-auto px-6">
+        <!-- Título -->
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-4">
+            Por que Escolher a Santa Rita?
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto text-center mb-12 relative">
+                O que nos torna únicos é o que fará a diferença no seu negócio.
+                <span class="absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 w-20 h-1 bg-yellow-400 rounded-full"></span>
+            </p>
+        
+        <!-- Grid de Diferenciais -->
+        <div class="flex flex-wrap justify-center gap-8 mt-16">
+            
+            <!-- Qualidade Garantida -->
+            <div class="text-center w-64">
+                <div class="bg-blue-50 w-24 h-24 mx-auto mb-6 rounded-full flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Localização Estratégica</h3>
+                <p class="text-gray-700">
+                    Estamos no CEASA no coração de Brasília para sua comodidade e agilidade na entrega de seus produtos.
+                </p>
+            </div>
+
+            <!-- Entrega Rápida -->
+            <div class="text-center w-64">
+                <div class="bg-blue-50 w-24 h-24 mx-auto mb-6 rounded-full flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="1" y="3" width="15" height="13"></rect>
+                        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                        <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                        <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Entrega Grátis</h3>
+                <p class="text-gray-700">
+                    Para o DF e entorno! A entrega é realizada em rotas diárias, sujeita à disponibilidade, garantindo a comodidade de receber seu pedido sem custo.
+                </p>
+            </div>
+
+            <!-- Atendimento Personalizado -->
+            <div class="text-center w-64">
+                <div class="bg-blue-50 w-24 h-24 mx-auto mb-6 rounded-full flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Atendimento Personalizado</h3>
+                <p class="text-gray-700">
+                    Consultoria especializada para encontrar a melhor solução para seu negócio.
+                </p>
+            </div>
+
+            <!-- Melhor Custo-Benefício -->
+            <div class="text-center w-64">
+            <div class="bg-blue-50 w-24 h-24 mx-auto mb-6 rounded-full flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="2" x2="12" y2="22"></line>
+                    <path d="M17 5H9.5a3.5 3.5 0 1 0 0 7h5a3.5 3.5 0 1 1 0 7H6"></path>
+                </svg>
+            </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Melhor Custo-Benefício</h3>
+                <p class="text-gray-700">
+                    Preços competitivos sem abrir mão da qualidade e do atendimento.
+                </p>
+             </div>
+        </div>
+    </div>
+</section>
+
+<!-- Produtos -->
+<section class="produtos py-20 bg-white" id="produtos">
+    <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-4">
+        Nossos Produtos
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto text-center mb-12 relative">
+            Encontre a embalagem ideal para seu negócio em nossa ampla seleção de produtos profissionais
+            <span class="absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 w-20 h-1 bg-yellow-400 rounded-full"></span>
+        </p>
+        
+        <!-- Primeira linha: 4 itens -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-8">
+            <!-- Descartáveis -->
+            <div class="produto-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2 opacity-0 animate-fade-in" style="animation-delay: 0.1s">
+                <div class="h-64 overflow-hidden bg-gray-100">
+                    <img src="images/descartaveis.jpg" alt="Descartáveis" class="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-105">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Descartáveis</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">Marmitas, Copos e embalagens descartáveis para seu local comercial. Resistentes e práticas para facilitar o dia a dia.</p>
+                    <a href="https://drive.google.com/file/d/1hPTPtsFg18vhvS9ty7YYBSwJqfM3REE4/view?usp=drive_link" target="_blank" 
+                        class="inline-block bg-primary hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
+                        onclick="gtag('event', 'click', {'event_category': 'product_catalog', 'event_label': 'descartaveis'});">
+                        Ver Catálogo
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mercados e Açougues -->
+            <div class="produto-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2 opacity-0 animate-fade-in" style="animation-delay: 0.2s">
+                <div class="h-64 overflow-hidden bg-gray-100">
+                    <img src="images/mercado.jpg" alt="Mercados e Açougues" class="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-105">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Mercados e Açougues</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">Nossas embalagens são essenciais para manter o seu dia a dia, desde a gôndola até a mesa do consumidor.</p>
+                    <a href="https://drive.google.com/file/d/1n3sATvimsn6Iv0-TaqwO5GPOHJSd0bPX/view?usp=drive_link" target="_blank" 
+                        class="inline-block bg-primary hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
+                        onclick="gtag('event', 'click', {'event_category': 'product_catalog', 'event_label': 'mercado'});">
+                        Ver Catálogo
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hamburguerias e Lanchonetes -->
+            <div class="produto-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2 opacity-0 animate-fade-in" style="animation-delay: 0.3s">
+                <div class="h-64 overflow-hidden bg-gray-100">
+                    <img src="images/lanchonete.jpg" alt="Hamburguerias e Lanchonetes" class="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-105">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Hamburguerias e Lanchonetes</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">Garanta que seus hambúrgueres e lanches cheguem quentinhos e com qualidade.</p>
+                    <a href="https://drive.google.com/file/d/1YM3JkbqY2E8uw3Y_Ybof27oPqjrBaYp4/view?usp=drive_link" target="_blank" 
+                        class="inline-block bg-primary hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
+                        onclick="gtag('event', 'click', {'event_category': 'product_catalog', 'event_label': 'burguerlanche'});">
+                        Ver Catálogo
+                    </a>
+                </div>
+            </div>
+
+            <!-- Embalagens para Festas -->
+            <div class="produto-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2 opacity-0 animate-fade-in" style="animation-delay: 0.4s">
+                <div class="h-64 overflow-hidden bg-gray-100">
+                    <img src="images/festa.jpg" alt="Embalagens para Festas" class="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-105">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Embalagens para Festas</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">Utensílios descartáveis, copos e embalagens temáticas para eventos, festas e comemorações.</p>
+                    <a href="https://drive.google.com/file/d/1z20Twymcy-N-akN6l8fLwfGSLMH7n5ns/view?usp=drive_link" target="_blank" 
+                        class="inline-block bg-primary hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
+                        onclick="gtag('event', 'click', {'event_category': 'product_catalog', 'event_label': 'festa'});">
+                        Ver Catálogo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Segunda linha: 3 itens centralizados -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 lg:max-w-4xl lg:mx-auto">
+            <!-- Higiene e Limpeza -->
+            <div class="produto-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2 opacity-0 animate-fade-in" style="animation-delay: 0.5s">
+                <div class="h-64 overflow-hidden bg-gray-100">
+                    <img src="images/limpeza.webp" alt="Produtos de limpeza e higiene comerciais e residenciais" loading="lazy" class="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-105">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Higiene e Limpeza</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">Produtos de higiene e limpeza profissional para manter seu estabelecimento ou sua casa sempre limpos.</p>
+                    <a href="https://drive.google.com/file/d/1tqjIgxpg98SagOmdRcac_MgAZVm3qo0l/view?usp=drive_link" target="_blank" 
+                        class="inline-block bg-primary hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
+                        onclick="gtag('event', 'click', {'event_category': 'product_catalog', 'event_label': 'higiene'});">
+                        Ver Catálogo
+                    </a>
+                </div>
+            </div>
+
+            <!-- Diversos -->
+            <div class="produto-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2 opacity-0 animate-fade-in" style="animation-delay: 0.6s">
+                <div class="h-64 overflow-hidden bg-gray-100">
+                    <img src="images/diversos.webp" alt="Diversos produtos e embalagens PSR" loading="lazy" class="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-105">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Diversos</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">Variados produtos e soluções para atender todas as necessidades do seu negócio.</p>
+                    <a href="https://drive.google.com/file/d/1ZjliXD9An3IeLgaNyujiPJqpeufiayF4/view?usp=drive_link" target="_blank" 
+                        class="inline-block bg-primary hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
+                        onclick="gtag('event', 'click', {'event_category': 'product_catalog', 'event_label': 'diversos'});">
+                        Ver Catálogo
+                    </a>
+                </div>
+            </div>
+
+            <!-- Biodegradáveis -->
+            <div class="produto-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2 opacity-0 animate-fade-in" style="animation-delay: 0.7s">
+                <div class="h-64 overflow-hidden bg-gray-100">
+                    <img src="images/bio.jpg" alt="Embalagens biodegradáveis e sustentáveis" loading="lazy" class="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-105">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Biodegradáveis</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">Produtos ecológicos e sustentáveis que respeitam o meio ambiente sem abrir mão da qualidade.</p>
+                    <a href="https://drive.google.com/file/d/1PWiCsAINVKoJ5lBrkpUg86oQ9nOdM-R9/view?usp=drive_link" target="_blank" 
+                        class="inline-block bg-primary hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
+                        onclick="gtag('event', 'click', {'event_category': 'product_catalog', 'event_label': 'bio'});">
+                        Ver Catálogo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sobre a Empresa -->
+<section id="sobre" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <!-- Lado esquerdo: Conteúdo das abas -->
+            <div>
+                <!-- Botões das abas -->
+                <div class="flex space-x-2 mb-8">
+                    <button onclick="showTab('choose')" 
+                            id="tab-choose" 
+                            class="tab-button active flex items-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                            <path d="M12 15.2C9.2 15.2 7 13 7 10.2C7 7.4 9.2 5.2 12 5.2C14.8 5.2 17 7.4 17 10.2C17 13 14.8 15.2 12 15.2ZM12 7.2C10.3 7.2 9 8.5 9 10.2C9 11.9 10.3 13.2 12 13.2C13.7 13.2 15 11.9 15 10.2C15 8.5 13.7 7.2 12 7.2Z"/>
+                            <path d="M12 22.7C11.7 22.7 11.5 22.6 11.2 22.5C10.9 22.3 5.70001 19.1 3.10001 14.4C2.40001 13.1 2 11.7 2 10.2C2 5.7 6.5 2 12 2C17.5 2 22 5.7 22 10.2C22 11.7 21.6 13.1 20.9 14.4C18.3 19.1 13.1 22.3 12.8 22.5C12.5 22.6 12.3 22.7 12 22.7ZM12 4C7.6 4 4 6.8 4 10.2C4 11.3 4.3 12.4 4.8 13.4C6.9 17.1 10.8 19.8 12 20.6C13.2 19.8 17.1 17.1 19.2 13.4C19.7 12.4 20 11.3 20 10.2C20 6.8 16.4 4 12 4Z"/>
+                        </svg>
+                        <span>Porque nos escolher?</span>
+                    </button>
+                    <button onclick="showTab('story')" 
+                            id="tab-story" 
+                            class="tab-button flex items-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                            <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/>
+                        </svg>
+                        <span>Nossa Historia</span>
+                    </button>
+                    <button onclick="showTab('mission')" 
+                            id="tab-mission" 
+                            class="tab-button flex items-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+                            <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
+                            <circle cx="12" cy="12" r="2"/>
+                        </svg>
+                        <span>Nossa Missão</span>
+                    </button>
+                </div>
+
+                 <!-- Conteúdo da aba "Why Choose Us" -->
+                <div id="content-choose" class="tab-content">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">
+                        Por que escolher a <span class="text-secondary">PSR Embalagens</span>?
+                    </h2>
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-primary text-white rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2-13h4v2h-4zm0 3h4v6h-4z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-2">15+ Anos de experiência</h3>
+                                <p class="text-gray-600">Há mais de uma década somos referência em embalagens no Distrito Federal, garantindo a qualidade e a experiência que você procura para o seu negócio.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-primary text-white rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-2">Milhares de clientes satisfeitos</h3>
+                                <p class="text-gray-600">Com uma base sólida de milhares de clientes satisfeitos, nossa experiência se traduz em confiança e soluções que realmente funcionam para o seu negócio.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-primary text-white rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM6 10h2v2H6zm0 4h8v2H6zm10 0h2v2h-2zm-6-4h8v2h-8z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-2">Grande variedade de produtos</h3>
+                                <p class="text-gray-600">Encontre tudo em um só lugar. Nosso amplo e diversificado estoque foi pensado para oferecer uma vasta gama de produtos e solucionar todas as suas necessidades de embalagem.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conteúdo da aba "Our Story" -->
+                <div id="content-story" class="tab-content hidden">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">
+                        Atendendo Empresas Desde 2010
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        A PSR Embalagens começou como uma pequena distribuidora de embalagens em Brasília com um objetivo simples: fornecer às empresas produtos de embalagem de qualidade a preços competitivos. Ao longo dos anos, crescemos para nos tornar um dos fornecedores de embalagens mais confiáveis da região.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Localizada no coração de Brasília, mantemos um grande estoque de produtos de embalagem prontos para entrega imediata. De pequenos restaurantes a grandes redes de varejo, atendemos empresas de todos os tamanhos com o mesmo compromisso com qualidade e atendimento.
+                    </p>
+                    <div class="bg-blue-50 border-l-4 border-primary p-6 rounded-r-lg">
+                        <blockquote class="text-lg text-blue-800 italic font-medium">
+                            "Acreditamos na construção de relacionamentos duradouros com nossos clientes através de produtos confiáveis e atendimento excepcional."
+                        </blockquote>
+                        <p class="text-blue-600 font-semibold mt-2">— Equipe PSR Embalagens</p>
+                    </div>
+                </div>
+
+                <!-- Conteúdo da aba "Our Mission" -->
+                <div id="content-mission" class="tab-content hidden">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                        Nossa <span class="text-secondary">Missão</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Ser o parceiro estratégico de pequenas e médias empresas, fornecendo soluções completas e inovadoras em embalagens de alta qualidade, impulsionadas por um atendimento excepcional que garante o sucesso e a satisfação de nossos clientes.
+                    </p>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                        Nossa <span class="text-secondary">Visão</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Ser a empresa líder e mais reconhecida em soluções de embalagens no Distrito Federal, expandindo nossa atuação para nos tornarmos uma referência nacional em qualidade, variedade e excelência no relacionamento com o cliente.
+                    </p>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                        Nossos <span class="text-secondary">Valores</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        <span class="text-primary font-semibold">COMPROMETIMENTO:</span> Dedicamo-nos integralmente aos nossos clientes e à busca por soluções que superem suas expectativas.<br>
+                        <span class="text-primary font-semibold">INTEGRIDADE E TRANSPARÊNCIA:</span> Agimos com honestidade, ética e clareza em todas as nossas relações e operações.<br>
+                        <span class="text-primary font-semibold">EXCELÊNCIA EM ATENDIMENTO:</span> Buscamos sempre aprimorar a experiência do cliente, oferecendo suporte ágil, eficaz e personalizado.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Lado direito: Carrossel de Imagens -->
+            <div class="relative flex items-center justify-center h-full">
+                <div id="about-carousel" class="w-full relative">
+                    <!-- Botões de navegação -->
+                    <button class="carousel-arrow carousel-prev" aria-label="Imagem anterior">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+                        </svg>
+                    </button>
+                    <button class="carousel-arrow carousel-next" aria-label="Próxima imagem">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+                        </svg>
+                    </button>
+                    
+                    <!-- Imagens do carrossel -->
+                    <!--<div class="carousel-item active">
+                        <img src="images/entrada_loja.webp" 
+                            alt="PSR Embalagens - Entrada da Loja" loading="lazy" class="rounded-lg shadow-lg object-cover w-full" style="max-height: 627px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/caminho_loja.webp" 
+                            alt="PSR Embalagens - Rua da Loja" loading="lazy" class="rounded-lg shadow-lg object-cover w-full" style="max-height: 627px;">
+                    </div>-->
+                    <div class="carousel-item">
+                        <img src="images/trabalhando_no_estoque.JPG" 
+                            alt="Funcionário da PSR Embalagens organizando estoque de produtos" loading="lazy" class="rounded-lg shadow-lg object-cover w-full" style="max-height: 627px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/estoque_superior.JPG" 
+                            alt="Estoque completo de embalagens na PSR Embalagens" loading="lazy" class="rounded-lg shadow-lg object-cover w-full" style="max-height: 627px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/estoque_marmita.JPG" 
+                            alt="Variedade de marmitas e embalagens térmicas no estoque PSR" loading="lazy" class="rounded-lg shadow-lg object-cover w-full" style="max-height: 627px;">
+                    </div>
+                    
+                    <!-- Indicadores do carrossel -->
+                    <div class="carousel-indicators flex justify-center mt-4 space-x-3">
+                        <button class="carousel-indicator active" aria-label="Imagem 1"></button>
+                        <button class="carousel-indicator" aria-label="Imagem 2"></button>
+                        <button class="carousel-indicator" aria-label="Imagem 3"></button>
+                        <!--<button class="carousel-indicator" aria-label="Imagem 4"></button>
+                        <button class="carousel-indicator" aria-label="Imagem 5"></button>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Localização -->
+<section id="localizacao" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Nossa Localização</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Visite nossa loja física ou entre em contato para conhecer nossos produtos
+            </p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="relative rounded-lg overflow-hidden shadow-lg">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3839.2903327877243!2d-47.9464213!3d-15.788637900000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a311d2a52c945%3A0x3495b53058238b45!2sPSR%20Embalagens!5e0!3m2!1spt-BR!2sbr!4v1754508492863!5m2!1spt-BR!2sbr" 
+                    title="Localização da PSR Embalagens no Google Maps - CEASA Brasília DF"
+                    class="w-full h-96" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <div class="space-y-8">
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 flex items-center justify-center bg-[#214194] text-white rounded-lg flex-shrink-0">
+                        <svg class="w-6 h-6" fill="currentColor">
+                            <use href="#icon-map-pin"></use>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Endereço</h3>
+                        <p class="text-gray-600">
+                            SIA Trecho 10, LOTE 05, PAV B-10B, BOX 07<br>
+                            CEASA, Guará, Brasília - DF<br>
+                            CEP: 71200-100
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 flex items-center justify-center bg-[#214194] text-white rounded-lg flex-shrink-0">
+                        <svg class="w-6 h-6" fill="currentColor">
+                            <use href="#icon-time"></use>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Horário de Funcionamento</h3>
+                        <p class="text-gray-600">
+                            Segunda e Quinta: 5h às 17h<br>
+                            Terça, Quarta e Quinta: 6h às 17h<br>
+                            Sábado: 5h às 12h<br>
+                            Domingo: Fechado
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 flex items-center justify-center bg-[#214194] text-white rounded-lg flex-shrink-0">
+                        <svg class="w-6 h-6" fill="currentColor">
+                            <use href="#icon-phone"></use>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Contato</h3>
+                        <p class="text-gray-600">
+                            Telefone: (61) 99317-7107<br>
+                            Email: comercial@santaritaembalagens.com.br
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contato -->
+<section id="contato" class="py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Entre em Contato</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Tem alguma dúvida ou precisa de um orçamento? Estamos aqui para ajudar!
+            </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Formulário de Cadastro de Contato -->
+            <div class="bg-white p-8 rounded-lg shadow-sm">
+                <div class="mb-6">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Entre em Contato</h3>
+                    <p class="text-gray-600">Preencha o formulário abaixo e entraremos em contato com você.</p>
+                </div>
+                
+                <form id="contactForm" class="space-y-6">
+                    <!-- Nome -->
+                    <div>
+                        <label for="nome" class="block text-sm font-medium text-gray-700 mb-2">
+                            Nome Completo *
+                        </label>
+                        <input type="text" id="nome" name="nome" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                                placeholder="Digite seu nome completo">
+                    </div>
+
+                    <!-- Telefone -->
+                    <div>
+                        <label for="telefone" class="block text-sm font-medium text-gray-700 mb-2">
+                            Telefone *
+                        </label>
+                        <input type="tel" id="telefone" name="telefone" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                                placeholder="(61) 99999-9999">
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                            Email *
+                        </label>
+                        <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                                placeholder="seu@email.com">
+                    </div>
+
+                    <!-- Descrição -->
+                    <div>
+                        <label for="descricao" class="block text-sm font-medium text-gray-700 mb-2">
+                            Descrição/Mensagem *
+                        </label>
+                        <textarea id="descricao" name="descricao" rows="4" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-vertical"
+                                    placeholder="Descreva sua necessidade ou deixe sua mensagem..."></textarea>
+                    </div>
+
+                    <!-- Botão de Envio -->
+                    <div>
+                        <button type="submit" 
+                                class="w-full bg-primary text-white py-3 px-6 rounded-lg font-semibold hover:bg-primary-dark transition-colors focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 inline-block mr-2">
+                                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                            </svg>
+                            Enviar Mensagem
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Lado direito: Google Reviews -->
+    <div class="bg-white p-8 rounded-lg shadow-sm">
+        <div class="flex items-center justify-between mb-6">
+            <h3 class="text-2xl font-bold text-gray-900">Avaliações Google</h3>
+            <div class="flex items-center space-x-2">
+                <div class="flex text-yellow-400">
+                    <svg class="w-4 h-4" fill="currentColor">
+                        <use href="#icon-star-fill"></use>
+                    </svg>
+                    <svg class="w-4 h-4" fill="currentColor">
+                        <use href="#icon-star-fill"></use>
+                    </svg>
+                    <svg class="w-4 h-4" fill="currentColor">
+                        <use href="#icon-star-fill"></use>
+                    </svg>
+                    <svg class="w-4 h-4" fill="currentColor">
+                        <use href="#icon-star-fill"></use>
+                    </svg>
+                    <svg class="w-4 h-4" fill="currentColor">
+                        <use href="#icon-star-fill"></use>
+                    </svg>
+                </div>
+                <span class="text-gray-600 font-semibold">5.0</span>
+            </div>
+        </div>
+
+<div class="space-y-6 max-h-124 overflow-y-auto">
+    
+    <!-- Review 1 - Alcides Moreira -->
+    <div class="border-b border-gray-100 pb-4">
+        <div class="flex items-start space-x-3">
+            <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold text-xs">
+                AM
+            </div>
+            <div class="flex-1">
+                <div class="flex items-center justify-between mb-2">
+                    <div>
+                        <h4 class="font-semibold text-gray-900">Alcides Moreira</h4>
+                        <p class="text-xs text-gray-500">2 avaliações • 0 foto</p>
+                    </div>
+                    <div class="flex text-yellow-400 text-sm">
+                        <svg class="w-4 h-4" fill="currentColor">
+                            <use href="#icon-star-fill"></use>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor">
+                            <use href="#icon-star-fill"></use>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor">
+                            <use href="#icon-star-fill"></use>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor">
+                            <use href="#icon-star-fill"></use>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor">
+                            <use href="#icon-star-fill"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2 mb-2">
+                    <span class="text-xs text-gray-600">Há 3 semanas</span>
+                    <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Novo</span>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    Atendimento rápido e entrega no dia marcado!!! Parabéns
+                </p>
+                <!-- Resposta da empresa -->
+                <div class="mt-3 ml-4 p-3 bg-gray-50 rounded-lg border-l-4 border-primary">
+                    <div class="flex items-center space-x-2 mb-1">
+                        <span class="text-sm font-semibold text-primary">PSR Embalagens</span>
+                        <span class="text-xs bg-primary text-white px-2 py-1 rounded">Proprietário</span>
+                    </div>
+                    <p class="text-sm text-gray-600">Obrigado pela sua avaliação, ficamos muito contentes com seu feedback.😊</p>
+                    <span class="text-xs text-gray-600">Há 4 dias</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Review 2 - Wellisson Luis -->
+    <div class="border-b border-gray-100 pb-4">
+        <div class="flex items-start space-x-3">
+            <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white font-semibold text-xs">
+                WL
+            </div>
+            <div class="flex-1">
+                <div class="flex items-center justify-between mb-2">
+                    <div>
+                        <h4 class="font-semibold text-gray-900">Wellisson Luis</h4>
+                        <p class="text-xs text-gray-500">
+                            <span class="inline-flex items-center text-blue-600">
+                                <svg class="w-4 h-4 mr-1" fill="currentColor">
+                                    <use href="#icon-map-pin"></use>
+                                </svg>
+                                Local Guide
+                            </span>
+                            • 10 avaliações • 12 fotos
+                        </p>
+                    </div>
+                    <div class="flex text-yellow-400 text-sm">
+                        <svg class="w-4 h-4" fill="currentColor">
+                            <use href="#icon-star-fill"></use>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor">
+                            <use href="#icon-star-fill"></use>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor">
+                            <use href="#icon-star-fill"></use>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor">
+                            <use href="#icon-star-fill"></use>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor">
+                            <use href="#icon-star-fill"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2 mb-2">
+                    <span class="text-xs text-gray-600">Há 3 dias</span>
+                    <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Novo</span>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    Atendimento ótimo
+                </p>
+                <!-- Resposta da empresa -->
+                <div class="mt-3 ml-4 p-3 bg-gray-50 rounded-lg border-l-4 border-primary">
+                    <div class="flex items-center space-x-2 mb-1">
+                        <span class="text-sm font-semibold text-primary">PSR Embalagens</span>
+                        <span class="text-xs bg-primary text-white px-2 py-1 rounded">Proprietário</span>
+                    </div>
+                    <p class="text-sm text-gray-600">Obrigado pela avaliação! 😊</p>
+                    <span class="text-xs text-gray-600">Há pouco tempo</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Review 3 - Carlos Henrique -->
+    <div class="border-b border-gray-100 pb-4">
+        <div class="flex items-start space-x-3">
+            <div class="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center text-white font-semibold text-xs">
+                CH
+            </div>
+            <div class="flex-1">
+                <div class="flex items-center justify-between mb-2">
+                    <div>
+                        <h4 class="font-semibold text-gray-900">Carlos Henrique</h4>
+                        <p class="text-xs text-gray-500">2 avaliações • 0 foto</p>
+                    </div>
+                    <div class="flex text-yellow-400 text-sm">
+                        <svg class="w-4 h-4" fill="currentColor">
+                            <use href="#icon-star-fill"></use>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor">
+                            <use href="#icon-star-fill"></use>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor">
+                            <use href="#icon-star-fill"></use>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor">
+                            <use href="#icon-star-fill"></use>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor">
+                            <use href="#icon-star-fill"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2 mb-2">
+                    <span class="text-xs text-gray-600">Há 3 semanas</span>
+                    <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Novo</span>
+                </div>
+                <!-- Resposta da empresa -->
+                <div class="mt-3 ml-4 p-3 bg-gray-50 rounded-lg border-l-4 border-primary">
+                    <div class="flex items-center space-x-2 mb-1">
+                        <span class="text-sm font-semibold text-primary">PSR Embalagens</span>
+                        <span class="text-xs bg-primary text-white px-2 py-1 rounded">Proprietário</span>
+                    </div>
+                    <p class="text-sm text-gray-600">Obrigado pela avaliação! 😊</p>
+                    <span class="text-xs text-gray-400">Há 4 dias</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Review 4 - Margarete -->
+    <div class="border-b border-gray-100 pb-4">
+        <div class="flex items-start space-x-3">
+            <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white font-semibold text-xs">
+                MS
+            </div>
+            <div class="flex-1">
+                <div class="flex items-center justify-between mb-2">
+                    <div>
+                        <h4 class="font-semibold text-gray-900">Margarete Simplicia da Silva aguilar</h4>
+                        <p class="text-xs text-gray-500">1 avaliação • 0 foto</p>
+                    </div>
+                    <div class="flex text-yellow-400 text-sm">
+                        <svg class="w-4 h-4" fill="currentColor">
+                            <use href="#icon-star-fill"></use>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor">
+                            <use href="#icon-star-fill"></use>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor">
+                            <use href="#icon-star-fill"></use>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor">
+                            <use href="#icon-star-fill"></use>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor">
+                            <use href="#icon-star-fill"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2 mb-2">
+                    <span class="text-xs text-gray-600">Há 4 semanas</span>
+                    <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Novo</span>
+                </div>
+                <!-- Resposta da empresa -->
+                <div class="mt-3 ml-4 p-3 bg-gray-50 rounded-lg border-l-4 border-primary">
+                    <div class="flex items-center space-x-2 mb-1">
+                        <span class="text-sm font-semibold text-primary">PSR Embalagens</span>
+                        <span class="text-xs bg-primary text-white px-2 py-1 rounded">Proprietário</span>
+                    </div>
+                    <p class="text-sm text-gray-600">Obrigado pela avaliação! 😊</p>
+                    <span class="text-xs text-gray-400">Há 3 semanas</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Botão Ver Mais Reviews -->
+    <div class="mt-6 pt-4 border-t border-gray-100">
+        <a href="https://www.google.com/search?q=psr+embalagens&ie=UTF-8" 
+            target="_blank"
+            class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2"
+            onclick="gtag('event', 'click', {'event_category': 'engagement', 'event_label': 'google_reviews'});">
+            <svg class="w-5 h-5" fill="currentColor">
+                <use href="#icon-google"></use>
+            </svg>
+            <span>Ver Todas as Avaliações</span>
+        </a>
+    </div>
+</section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Perguntas Frequentes</h2>
+                <p class="text-xl text-gray-600">
+                    Tire suas dúvidas sobre nossos produtos e serviços
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item bg-gray-50 rounded-lg">
+                    <button class="faq-question w-full px-6 py-4 text-left font-semibold text-gray-900 hover:text-primary transition-colors flex items-center justify-between"
+                            onclick="toggleFAQ(1)">
+                        <span>Vocês fazem entrega grátis em Brasília?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" id="faq-icon-1" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 transform transition-transform">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        </svg>
+                    </button>
+                    <div id="faq-answer-1" class="faq-answer hidden px-6 pb-4">
+                        <p class="text-gray-600 leading-relaxed">
+                            Sim! Fazemos entrega grátis para todo o DF e entorno. A entrega é realizada em rotas diárias, sujeita à disponibilidade de horário e localização. Entre em contato conosco para confirmar se sua região está na nossa rota de entrega.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item bg-gray-50 rounded-lg">
+                    <button class="faq-question w-full px-6 py-4 text-left font-semibold text-gray-900 hover:text-primary transition-colors flex items-center justify-between"
+                            onclick="toggleFAQ(2)">
+                        <span>Qual o horário de funcionamento da PSR Embalagens?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" id="faq-icon-2" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 transform transition-transform">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        </svg>
+                    </button>
+                    <div id="faq-answer-2" class="faq-answer hidden px-6 pb-4">
+                        <p class="text-gray-600 leading-relaxed">
+                            Funcionamos de segunda a sexta das 5h às 17h e aos sábados das 5h às 12h. Domingos permanecemos fechados. Estamos localizados no CEASA, facilitando o acesso para nossos clientes.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item bg-gray-50 rounded-lg">
+                    <button class="faq-question w-full px-6 py-4 text-left font-semibold text-gray-900 hover:text-primary transition-colors flex items-center justify-between"
+                            onclick="toggleFAQ(3)">
+                        <span>Vocês vendem embalagens para delivery?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" id="faq-icon-3" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 transform transition-transform">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        </svg>
+                    </button>
+                    <div id="faq-answer-3" class="faq-answer hidden px-6 pb-4">
+                        <p class="text-gray-600 leading-relaxed">
+                            Sim! Temos uma linha completa de embalagens para delivery: marmitas, caixas para hambúrguer, sacolas, garrafas e muito mais. Todos os produtos são resistentes e mantêm a qualidade dos alimentos durante o transporte.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item bg-gray-50 rounded-lg">
+                    <button class="faq-question w-full px-6 py-4 text-left font-semibold text-gray-900 hover:text-primary transition-colors flex items-center justify-between"
+                            onclick="toggleFAQ(4)">
+                        <span>Como posso fazer um orçamento?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" id="faq-icon-4" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 transform transition-transform">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        </svg>
+                    </button>
+                    <div id="faq-answer-4" class="faq-answer hidden px-6 pb-4">
+                        <p class="text-gray-600 leading-relaxed">
+                            Você pode solicitar orçamento pelo WhatsApp ou ligando para (61) 99317-7107, email comercial@santaritaembalagens.com.br ou visitando nossa loja no CEASA, Guará, Brasília-DF. Nossa equipe está sempre pronta para atendê-lo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="faq-item bg-gray-50 rounded-lg">
+                    <button class="faq-question w-full px-6 py-4 text-left font-semibold text-gray-900 hover:text-primary transition-colors flex items-center justify-between"
+                            onclick="toggleFAQ(5)">
+                        <span>Vocês têm embalagens biodegradáveis?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" id="faq-icon-5" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 transform transition-transform">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        </svg>
+                    </button>
+                    <div id="faq-answer-5" class="faq-answer hidden px-6 pb-4">
+                        <p class="text-gray-600 leading-relaxed">
+                            Sim! Oferecemos uma linha completa de embalagens biodegradáveis e sustentáveis que respeitam o meio ambiente sem abrir mão da qualidade. Consulte nosso catálogo para conhecer todas as opções disponíveis.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="faq-item bg-gray-50 rounded-lg">
+                    <button class="faq-question w-full px-6 py-4 text-left font-semibold text-gray-900 hover:text-primary transition-colors flex items-center justify-between"
+                            onclick="toggleFAQ(6)">
+                        <span>Qual a localização da PSR Embalagens?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" id="faq-icon-6" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 transform transition-transform">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        </svg>
+                    </button>
+                    <div id="faq-answer-6" class="faq-answer hidden px-6 pb-4">
+                        <p class="text-gray-600 leading-relaxed">
+                            Estamos localizados no SIA Trecho 10, LOTE 05, PAV B-10B, BOX 07, CEASA, Guará, Brasília - DF, CEP: 71200-100. Uma localização estratégica para facilitar o acesso e agilizar as entregas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA no final do FAQ -->
+            <div class="text-center mt-12">
+                <p class="text-gray-600 mb-6">Não encontrou a resposta que procurava?</p>
+                <a href="https://wa.me/5561993177107" target="_blank" 
+                class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-flex items-center space-x-2"
+                onclick="gtag('event', 'click', {'event_category': 'conversion', 'event_label': 'whatsapp_faq'});">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                        <path d="M17.498 14.382c-.301-.15-1.767-.867-2.04-.966-.273-.101-.473-.15-.673.15-.197.295-.771.964-.944 1.162-.175.195-.349.21-.646.075-.3-.15-1.263-.465-2.403-1.485-.888-.795-1.484-1.77-1.66-2.07-.174-.3-.019-.465.13-.615.136-.135.301-.345.451-.523.146-.181.194-.301.297-.496.1-.21.049-.375-.025-.524-.075-.15-.672-1.62-.922-2.206-.24-.584-.487-.51-.672-.51-.172-.015-.371-.015-.571-.015-.2 0-.523.074-.797.359-.273.3-1.045 1.02-1.045 2.475s1.07 2.865 1.219 3.075c.149.195 2.105 3.195 5.1 4.485.714.3 1.27.48 1.704.629.714.227 1.365.195 1.88.121.574-.091 1.767-.721 2.016-1.426.255-.705.255-1.29.18-1.425-.074-.135-.27-.21-.57-.345m-5.446 7.443h-.016c-1.77 0-3.524-.48-5.055-1.38l-.36-.214-3.75.975 1.005-3.645-.239-.375c-.99-1.576-1.516-3.391-1.516-5.26 0-5.445 4.455-9.885 9.942-9.885 2.654 0 5.145 1.035 7.021 2.91 1.875 1.859 2.909 4.35 2.909 6.99-.004 5.444-4.46 9.885-9.935 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652c1.746.943 3.71 1.444 5.71 1.447h.006c6.585 0 11.946-5.336 11.949-11.896 0-3.176-1.24-6.165-3.495-8.411"/>
+                    </svg>
+                    <span>Fale Conosco no WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/5561993177107?text=Olá! Gostaria de conhecer mais sobre as embalagens da PSR EMBALAGENS." 
+    class="whatsapp-float" 
+    title="Fale conosco no WhatsApp" 
+    target="_blank"
+    onclick="gtag('event', 'click', {'event_category': 'conversion', 'event_label': 'whatsapp_float'});">
+</a>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>PSR EMBALAGENS</h3>
+                <p>Sua parceira em embalagens de qualidade no Distrito Federal. Soluções completas para empresas e eventos.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61578739646226" 
+                        title="Facebook" 
+                        target="_blank"
+                        onclick="gtag('event', 'click', {'event_category': 'social', 'event_label': 'facebook'});"></a>
+                    <a href="https://www.instagram.com/psrembalagens/" 
+                        title="Instagram" 
+                        target="_blank"
+                        onclick="gtag('event', 'click', {'event_category': 'social', 'event_label': 'instagram'});"></a>
+                    <a href="https://wa.me/5561993177107" 
+                        title="WhatsApp" 
+                        target="_blank"
+                        onclick="gtag('event', 'click', {'event_category': 'conversion', 'event_label': 'whatsapp_footer'});"></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Empresa</h3>
+                <a href="#sobre">Sobre Nós</a>
+                <a href="#diferenciais">Nossos Diferenciais</a>
+                <a href="#contato">Contato</a>
+                <a href="#">Política de Privacidade</a>
+            </div>
+            <div class="footer-section">
+                <h3>Atendimento</h3>
+                <p>📞 (61) 99317-7107</p>
+                <p>📧 comercial@santaritaembalagens.com.br</p>
+                <p>🕒 Seg/Qui: 5h às 17h</p>
+                <p>🕒 Ter/Quar/Sex: 6h às 17h</p>
+                <p>🕒 Sáb: 5h às 12h</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 PSR EMBALAGENS - Embalagens Brasília. Todos os direitos reservados. | Desenvolvido com ❤️ para o seu negócio</p>
+        </div>
+    </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="main.js"></script>
+
+<!-- Script para as abas da seção Sobre -->
+<script>
+    function showTab(tabName) {
+        // Esconder todo o conteúdo das abas
+        const contents = document.querySelectorAll('.tab-content');
+        contents.forEach(content => content.classList.add('hidden'));
+        
+        // Remover classe active de todos os botões
+        const buttons = document.querySelectorAll('.tab-button');
+        buttons.forEach(button => {
+            button.classList.remove('active');
+            button.classList.remove('bg-primary', 'text-white');
+            button.classList.add('bg-gray-200', 'text-gray-700');
+        });
+        
+        // Mostrar o conteúdo selecionado
+        document.getElementById(`content-${tabName}`).classList.remove('hidden');
+        
+        // Adicionar classe active ao botão selecionado
+        const activeButton = document.getElementById(`tab-${tabName}`);
+        activeButton.classList.add('active');
+        activeButton.classList.remove('bg-gray-200', 'text-gray-700');
+        activeButton.classList.add('bg-primary', 'text-white');
+        
+        // Enviar evento para Google Analytics
+        gtag('event', 'click', {
+            'event_category': 'engagement',
+            'event_label': `tab_${tabName}`
+        });
+    }
+    
+    // Inicializar as abas
+    document.addEventListener('DOMContentLoaded', function() {
+        const buttons = document.querySelectorAll('.tab-button');
+        buttons.forEach(button => {
+            if (!button.classList.contains('active')) {
+                button.classList.add('bg-gray-200', 'text-gray-700');
+            } else {
+                button.classList.add('bg-primary', 'text-white');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
