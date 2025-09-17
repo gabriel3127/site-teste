@@ -2,8 +2,8 @@
   "name": "psrembalagens-website",
   "version": "1.0.0",
   "scripts": {
-    "build": "tailwindcss -i ./style.css -o ./dist/style.css --minify",
-    "dev": "tailwindcss -i ./style.css -o ./dist/style.css --watch",
+    "build": "tailwindcss -i ./custom.css -o ./dist/style.css --minify",
+    "dev": "tailwindcss -i ./custom.css -o ./dist/style.css --watch",
     "start": "echo 'Site pronto para uso'"
   },
   "devDependencies": {
