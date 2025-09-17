@@ -416,8 +416,13 @@ class PSREmbalagens {
     // EmailJS
     async loadEmailJS() {
         try {
-            if (typeof emailjs !== 'undefined' && window.CONFIG) {
-                emailjs.init(window.CONFIG.EMAILJS_PUBLIC_KEY);  // ✅ USA VARIÁVEL DE AMBIENTE
+            const publicKey = document.querySelector('meta[name="emailjs-public-key"]')?.content;
+            const serviceId = document.querySelector('meta[name="emailjs-service-id"]')?.content;
+            const templateId = document.querySelector('meta[name="emailjs-template-id"]')?.content;
+            
+            if (typeof emailjs !== 'undefined' && publicKey) {
+                emailjs.init(publicKey);
+                this.emailjsConfig = { serviceId, templateId };
                 this.isEmailJSLoaded = true;
                 console.log('✅ EmailJS carregado');
             }
@@ -436,8 +441,8 @@ class PSREmbalagens {
         };
         
         return emailjs.send(
-            window.CONFIG.EMAILJS_SERVICE_ID,    // ✅ USA VARIÁVEL DE AMBIENTE
-            window.CONFIG.EMAILJS_TEMPLATE_ID,   // ✅ USA VARIÁVEL DE AMBIENTE
+            this.emailjsConfig.serviceId,
+            this.emailjsConfig.templateId,
             templateParams
         );
     }
