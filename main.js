@@ -82,53 +82,46 @@ class PSREmbalagens {
         if (!header) return;
 
         let lastScrollY = window.scrollY;
-        header.style.transition = 'all 0.3s ease';
+        let isScrolling = false;
         
-        const handleScroll = this.debounce(() => {
-            const currentScrollY = window.scrollY;
-            const navLinks = header.querySelectorAll('a');
-            
-            if (currentScrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.backdropFilter = 'blur(10px)';
-                header.style.boxShadow = '0 2px 20px rgba(33, 65, 148, 0.1)';
-                
-                // Garantir que os links permaneçam visíveis
-                navLinks.forEach(link => {
-                    if (!link.closest('.social-links')) {
-                        link.style.color = '#374151'; // text-gray-700
+        // Cache dos elementos para evitar consultas DOM repetidas
+        const navLinks = header.querySelectorAll('a:not(.social-links a)');
+        
+        // Usar CSS classes ao invés de inline styles
+        header.classList.add('header-transition');
+        
+        const handleScroll = () => {
+            if (!isScrolling) {
+                // Usar requestAnimationFrame para otimizar performance
+                requestAnimationFrame(() => {
+                    const currentScrollY = window.scrollY;
+                    
+                    // Batch todas as mudanças de classe
+                    if (currentScrollY > 100) {
+                        header.classList.add('header-scrolled');
+                    } else {
+                        header.classList.remove('header-scrolled');
                     }
-                });
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 1)';
-                header.style.backdropFilter = 'none';
-                header.style.boxShadow = '0 4px 15px rgba(33, 65, 148, 0.1)';
-                
-                // Garantir que os links permaneçam visíveis
-                navLinks.forEach(link => {
-                    if (!link.closest('.social-links')) {
-                        link.style.color = '#374151'; // text-gray-700
+                    
+                    if (currentScrollY > lastScrollY && currentScrollY > 200) {
+                        header.classList.add('header-hidden');
+                    } else {
+                        header.classList.remove('header-hidden');
                     }
+                    
+                    lastScrollY = currentScrollY;
+                    isScrolling = false;
                 });
             }
-            
-            if (currentScrollY > lastScrollY && currentScrollY > 200) {
-                header.style.transform = 'translateY(-100%)';
-            } else {
-                header.style.transform = 'translateY(0)';
-            }
-            
-            lastScrollY = currentScrollY;
-        }, 10);
+            isScrolling = true;
+        };
 
-        window.addEventListener('scroll', handleScroll);
+        // Aumentar debounce para reduzir execuções
+        window.addEventListener('scroll', this.debounce(handleScroll, 16), { passive: true });
         
-        // Garantir cores corretas no carregamento inicial
-        const navLinks = header.querySelectorAll('a');
+        // Aplicar estilos iniciais via CSS class
         navLinks.forEach(link => {
-            if (!link.closest('.social-links')) {
-                link.style.color = '#374151'; // text-gray-700
-            }
+            link.classList.add('nav-link-styled');
         });
     }
 
